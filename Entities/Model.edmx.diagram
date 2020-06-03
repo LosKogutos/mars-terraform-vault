@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="db1d18f71f844a9c99f5c27cb8b24137" Name="Diagram1">
+        <EntityTypeShape EntityType="MarsdbModel.AspNetRole" Width="1.5" PointX="5.25" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.AspNetUserClaim" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.AspNetUserLogin" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.AspNetUser" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.Game" Width="1.5" PointX="5.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.Production" Width="1.5" PointX="7.375" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="MarsdbModel.Vault" Width="1.5" PointX="7.375" PointY="6.375" IsExpanded="true" />
+        <AssociationConnector Association="MarsdbModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MarsdbModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" ManuallyRouted="false" />
+        <AssociationConnector Association="MarsdbModel.FK_Productions_Games" ManuallyRouted="false" >
+        </AssociationConnector>
+        <AssociationConnector Association="MarsdbModel.FK_Vaults_Games" ManuallyRouted="false" />
+        <AssociationConnector Association="MarsdbModel.AspNetUserRoles" ManuallyRouted="false" />
+        <AssociationConnector Association="MarsdbModel.Games_AspNetUsers" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
