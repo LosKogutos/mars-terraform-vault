@@ -26,7 +26,7 @@ namespace Entities
         public string Name { get; set; }
         public System.DateTime Created { get; set; }
         public Nullable<System.DateTime> Closed { get; set; }
-        public byte IsActive { get; set; }
+        public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Production> Productions { get; set; }

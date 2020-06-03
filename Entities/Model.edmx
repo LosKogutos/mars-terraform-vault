@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="MarsdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="MarsdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AspNetRoles">
           <Key>
             <PropertyRef Name="Id" />
@@ -64,7 +64,7 @@
           <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Created" Type="date" Nullable="false" />
           <Property Name="Closed" Type="date" />
-          <Property Name="IsActive" Type="tinyint" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'marsdb.dbo.Games_AspNetUsers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
@@ -217,12 +217,7 @@ warning 6002: The table/view 'marsdb.dbo.Games_AspNetUsers' does not have a prim
           <EntitySet Name="Games" EntityType="Self.Games" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Productions" EntityType="Self.Productions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vaults" EntityType="Self.Vaults" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Games_AspNetUsers" EntityType="Self.Games_AspNetUsers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Games_AspNetUsers].[GameId] AS [GameId], 
-    [Games_AspNetUsers].[AspNetUserId] AS [AspNetUserId]
-    FROM [dbo].[Games_AspNetUsers] AS [Games_AspNetUsers]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="Games_AspNetUsers" EntityType="Self.Games_AspNetUsers" store:Type="Tables" Schema="dbo"/>
           <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
             <End Role="AspNetUsers" EntitySet="AspNetUsers" />
             <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
@@ -256,8 +251,7 @@ warning 6002: The table/view 'marsdb.dbo.Games_AspNetUsers' does not have a prim
             <End Role="Vaults" EntitySet="Vaults" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="MarsdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -319,7 +313,7 @@ warning 6002: The table/view 'marsdb.dbo.Games_AspNetUsers' does not have a prim
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Created" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="Closed" Type="DateTime" Precision="0" />
-          <Property Name="IsActive" Type="Byte" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Productions" Relationship="Self.FK_Productions_Games" FromRole="Games" ToRole="Productions" />
           <NavigationProperty Name="Vaults" Relationship="Self.FK_Vaults_Games" FromRole="Games" ToRole="Vaults" />
           <NavigationProperty Name="AspNetUsers" Relationship="Self.Games_AspNetUsers" FromRole="Games" ToRole="AspNetUsers" />

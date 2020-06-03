@@ -21,7 +21,7 @@ namespace MarsTerraform.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-            : base("MarsdbEntities", throwIfV1Schema: false)
+            : base("MarsdbEntitiesApp", throwIfV1Schema: false)
         {
         }
 
