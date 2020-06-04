@@ -1,0 +1,55 @@
+﻿@model IEnumerable<MarsTerraform.ViewModels.GameVM>
+
+@{
+    ViewBag.Title = "Join";
+}
+
+<h2>Join</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Closed)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsActive)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PlayersCount)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Closed)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsActive)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PlayersCount)
+        </td>
+        <td>
+            @Html.ActionLink("Join", "JoinGame", new { gameId=item.Id }) 
+        </td>
+    </tr>
+}
+
+</table>

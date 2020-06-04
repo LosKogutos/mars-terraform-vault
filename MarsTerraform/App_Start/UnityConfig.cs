@@ -18,7 +18,7 @@ namespace MarsTerraform.App_Start
             var container = new UnityContainer();
 
             container.RegisterType<AccountController>(new InjectionConstructor());
-            //container.RegisterType<IUserStore<ApplicationUser>, UserStore<ApplicationUser>>();
+            container.RegisterType<ManageController>(new InjectionConstructor());
 
             container.RegisterType<IGameService, GameService>();
             

@@ -191,6 +191,7 @@
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\Interfaces\IGameService.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\GameVM.cs" />
     <Compile Include="ViewModels\NewGameVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -248,6 +249,7 @@
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Game\Create.cshtml" />
+    <Content Include="Views\Game\Join.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -4,6 +4,7 @@ using System.Web.Mvc;
 
 namespace MarsTerraform.Controllers
 {
+    [Authorize]
     public class GameController : Controller
     {
         private readonly IGameService _gameService;
@@ -14,11 +15,6 @@ namespace MarsTerraform.Controllers
         }
 
         public ActionResult Create()
-        {
-            return View();
-        }
-
-        public ActionResult Join()
         {
             return View();
         }
@@ -43,5 +39,32 @@ namespace MarsTerraform.Controllers
             return View();
         }
 
+        public ActionResult Join()
+        {
+            var games = _gameService.GetAvailableGames();
+            return View(games);
+        }
+
+        public ActionResult JoinGame(int gameId)
+        {
+            if(gameId != 0)
+            {
+                var isJoined = _gameService.JoinGame(gameId);
+                if (isJoined)
+                {
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    ViewBag.Error = "Unable to join the game.";
+                    return View("Join");
+                }
+            }
+            else
+            {
+                ViewBag.Error = "Unable to join the game.";
+                return View("Join");
+            }
+        }
     }
 }
