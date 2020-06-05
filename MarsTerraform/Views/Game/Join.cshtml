@@ -9,6 +9,14 @@
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+<br />
+@if (!string.IsNullOrEmpty(ViewBag.IsNotGameMember))
+{
+    <p>
+        @ViewBag.IsNotGameMember
+    </p>
+}
+
 <table class="table">
     <tr>
         <th>
@@ -29,27 +37,28 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Created)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Closed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PlayersCount)
-        </td>
-        <td>
-            @Html.ActionLink("Join", "JoinGame", new { gameId=item.Id }) 
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Closed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsActive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PlayersCount)
+            </td>
+            <td>
+                @Html.ActionLink("Join", "JoinGame", new { gameId = item.Id })
+            </td>
+        </tr>
+    }
 
 </table>

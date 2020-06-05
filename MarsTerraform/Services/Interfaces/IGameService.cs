@@ -8,5 +8,6 @@ namespace MarsTerraform.Services.Interfaces
         bool SaveGame(NewGameVM newGame);
         List<GameVM> GetAvailableGames();
         bool JoinGame(int gameId);
+        bool IsGameMember(string username, int gameId);
     }
 }

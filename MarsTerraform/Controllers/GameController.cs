@@ -5,6 +5,7 @@ using System.Web.Mvc;
 namespace MarsTerraform.Controllers
 {
     [Authorize]
+    [RoutePrefix("game")]
     public class GameController : Controller
     {
         private readonly IGameService _gameService;
@@ -14,6 +15,7 @@ namespace MarsTerraform.Controllers
             _gameService = gameService;
         }
 
+        [Route("create")]
         public ActionResult Create()
         {
             return View();
@@ -21,6 +23,7 @@ namespace MarsTerraform.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("create")]
         public ActionResult Create(NewGameVM newGame)
         {
             if (ModelState.IsValid)
@@ -39,12 +42,14 @@ namespace MarsTerraform.Controllers
             return View();
         }
 
+        [Route("join")]
         public ActionResult Join()
         {
             var games = _gameService.GetAvailableGames();
             return View(games);
         }
-
+        
+        [Route("joinGame")]
         public ActionResult JoinGame(int gameId)
         {
             if(gameId != 0)
@@ -64,6 +69,21 @@ namespace MarsTerraform.Controllers
             {
                 ViewBag.Error = "Unable to join the game.";
                 return View("Join");
+            }
+        }
+
+        [Route("{gameId}/index")]
+        public ActionResult Index(int gameId)
+        {
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            if(_gameService.IsGameMember(username, gameId)) {
+                //.GetUserHand(username, gameId);
+                return View();
+            }
+            else
+            {
+                ViewBag.IsNotGameMember = $"You are not yet a member of game #{gameId}. Please join below:";
+                return RedirectToAction("Join");
             }
         }
     }

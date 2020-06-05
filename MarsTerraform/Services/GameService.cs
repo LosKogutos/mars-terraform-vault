@@ -62,13 +62,19 @@ namespace MarsTerraform.Services
 
         public bool JoinGame(int gameId)
         {
-            using(var context = new MarsdbEntities())
+            var username = HttpContext.Current.User.Identity.Name;
+            if(IsGameMember(username, gameId))
+            {
+                return true;
+            }
+
+            using (var context = new MarsdbEntities())
             {
                 try
                 {
                     var game = context.Games.Where(g => g.Id == gameId).FirstOrDefault();
                     game.AspNetUsers.Add(
-                        context.AspNetUsers.First(u => u.UserName.Equals(HttpContext.Current.User.Identity.Name))
+                        context.AspNetUsers.First(u => u.UserName.Equals(username))
                     );
                     context.SaveChanges();
                     return true;
@@ -79,7 +85,17 @@ namespace MarsTerraform.Services
                 }
                 
             }
-            
+        }
+
+        public bool IsGameMember(string username, int gameId)
+        {
+            using(var context = new MarsdbEntities())
+            {
+                var count = context.AspNetUsers
+                    .Count(u => u.UserName.Equals(username) &&
+                        u.Games.Count(g => g.Id == gameId) > 0);
+                return count > 0;
+            }
         }
     }
 }
