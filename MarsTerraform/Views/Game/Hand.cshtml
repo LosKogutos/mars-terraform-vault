@@ -1,0 +1,50 @@
+﻿@model MarsTerraform.Models.HandVM
+
+@{
+    ViewBag.Title = "Hand";
+}
+
+<h2>Your Hand</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Production.Heat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Production.Heat)
+            <button type="button" class="btn-success" onclick="Add('production','energy')">+</button>
+            <button type="button" class="btn-danger" onclick="Substract('production','energy')">+</button>
+        </dd>
+    </dl>
+</div>
+<p>
+
+</p>
+
+@section scripts {
+    <script>
+        function Add(area, field) {
+            $.ajax({
+                type: 'POST',
+                url: '/Game/Add',
+                data: JSON.stringify(area, field),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.isSuccess) {
+                        //$("#successAlertDiv").show();
+                    }
+                    else {
+                        //$("#failureAlertDiv").show();
+                    }
+                },
+                failure: function (errMsg) {
+                    //$("#failureAlertDiv").show();
+                }
+            });
+        }
+    </script>
+}

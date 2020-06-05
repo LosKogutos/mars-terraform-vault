@@ -1,4 +1,5 @@
 ﻿using Entities;
+using MarsTerraform.Models;
 using MarsTerraform.Services.Interfaces;
 using MarsTerraform.ViewModels;
 using System;
@@ -76,6 +77,28 @@ namespace MarsTerraform.Services
                     game.AspNetUsers.Add(
                         context.AspNetUsers.First(u => u.UserName.Equals(username))
                     );
+                    context.Productions.Add(new Production()
+                    {
+                        GameId = gameId,
+                        Owner = username,
+                        Money = 0,
+                        Steel = 0,
+                        Titan = 0,
+                        Flora = 0,
+                        Energy = 0,
+                        Heat = 0
+                    });
+                    context.Vaults.Add(new Vault()
+                    {
+                        GameId = gameId,
+                        Owner = username,
+                        Money = 20,
+                        Steel = 0,
+                        Titan = 0,
+                        Flora = 0,
+                        Energy = 0,
+                        Heat = 0
+                    });
                     context.SaveChanges();
                     return true;
                 }
@@ -96,6 +119,65 @@ namespace MarsTerraform.Services
                         u.Games.Count(g => g.Id == gameId) > 0);
                 return count > 0;
             }
+        }
+
+        public HandVM GetUserHand(string username, int gameId)
+        {
+            var hand = new HandVM()
+            {
+                GameId = gameId,
+                Owner = username
+            };
+            using (var context = new MarsdbEntities())
+            {
+                hand.Production = context.Productions
+                    .Where(p => p.GameId == gameId && p.Owner.Equals(username))
+                    .Select(p => new ProductionVM
+                    {
+                        Id = p.Id,
+                        Money = p.Money,
+                        Steel = p.Steel,
+                        Titan = p.Titan,
+                        Flora = p.Flora,
+                        Energy = p.Energy,
+                        Heat = p.Heat
+                    }).First();
+
+                hand.Vault = context.Vaults
+                    .Where(p => p.GameId == gameId && p.Owner.Equals(username))
+                    .Select(p => new VaultVM
+                    {
+                        Id = p.Id,
+                        Money = p.Money,
+                        Steel = p.Steel,
+                        Titan = p.Titan,
+                        Flora = p.Flora,
+                        Energy = p.Energy,
+                        Heat = p.Heat
+                    }).First();
+                return hand;
+            }
+        }
+
+        public ChangeValueResponse Add(string area, string field, string username, int gameId)
+        {
+            var response = new ChangeValueResponse();
+            using (var context = new MarsdbEntities())
+            {
+                if(area.Equals("production"))
+                {
+                    var production = context.Productions
+                        .Where(p => p.Owner.Equals(username) && p.GameId == gameId)
+                        .First();
+                }
+                else if (area.Equals("vault"))
+                {
+                    var vault = context.Vaults
+                        .Where(p => p.Owner.Equals(username) && p.GameId == gameId)
+                        .First();
+                }
+            }
+            return response;
         }
     }
 }

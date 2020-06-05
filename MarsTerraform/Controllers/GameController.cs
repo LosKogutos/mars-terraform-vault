@@ -57,7 +57,7 @@ namespace MarsTerraform.Controllers
                 var isJoined = _gameService.JoinGame(gameId);
                 if (isJoined)
                 {
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Hand", "Game", new { gameId= gameId });
                 }
                 else
                 {
@@ -72,19 +72,52 @@ namespace MarsTerraform.Controllers
             }
         }
 
-        [Route("{gameId}/index")]
-        public ActionResult Index(int gameId)
+        [Route("{gameId}/hand/{username}")]
+        public ActionResult HandOponent(int gameId, string username)
         {
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
-            if(_gameService.IsGameMember(username, gameId)) {
-                //.GetUserHand(username, gameId);
-                return View();
+            if (_gameService.IsGameMember(username, gameId))
+            {
+                var hand = _gameService.GetUserHand(username, gameId);
+                return View(hand);
             }
             else
             {
                 ViewBag.IsNotGameMember = $"You are not yet a member of game #{gameId}. Please join below:";
                 return RedirectToAction("Join");
             }
+        }
+
+        [Route("{gameId}/hand")]
+        public ActionResult Hand(int gameId)
+        {
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            if(_gameService.IsGameMember(username, gameId)) {
+                var hand = _gameService.GetUserHand(username, gameId);
+                TempData["gameId"] = gameId;
+                return View(hand);
+            }
+            else
+            {
+                ViewBag.IsNotGameMember = $"You are not yet a member of game #{gameId}. Please join below:";
+                return RedirectToAction("Join");
+            }
+        }
+
+        [HttpPost]
+        [Route("add")]
+        public JsonResult Add(string area, string field)
+        {
+            var username = System.Web.HttpContext.Current.User.Identity.Name;
+
+            return Json(new { isSuccess = true });
+        }
+
+        [HttpPost]
+        [Route("substract")]
+        public JsonResult Substract(string area, string field)
+        {
+            //TO DO: add 
+            return Json(new { isSuccess = true });
         }
     }
 }

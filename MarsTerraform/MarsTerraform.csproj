@@ -185,8 +185,12 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ChangeValueResponse.cs" />
+    <Compile Include="Models\HandVM.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProductionVM.cs" />
+    <Compile Include="Models\VaultVM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\GameService.cs" />
     <Compile Include="Services\Interfaces\IGameService.cs" />
@@ -250,6 +254,8 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Game\Create.cshtml" />
     <Content Include="Views\Game\Join.cshtml" />
+    <Content Include="Views\Game\Hand.cshtml" />
+    <Content Include="Views\Game\HandOponent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

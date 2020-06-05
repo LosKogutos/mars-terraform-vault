@@ -1,0 +1,21 @@
+﻿@model MarsTerraform.Models.HandVM
+
+@{
+    ViewBag.Title = "HandOponent";
+}
+
+<h2>@Model.Owner's hand</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Production.Energy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Production.Energy)
+        </dd>
+    </dl>
+</div>
+<p>
+</p>
