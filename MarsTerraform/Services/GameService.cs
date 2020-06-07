@@ -159,23 +159,138 @@ namespace MarsTerraform.Services
             }
         }
 
-        public ChangeValueResponse Add(string area, string field, string username, int gameId)
+        public ChangeValueResponse AddProd(HandInputVM input, int gameId)
         {
+            var username = HttpContext.Current.User.Identity.Name;
             var response = new ChangeValueResponse();
+
             using (var context = new MarsdbEntities())
             {
-                if(area.Equals("production"))
+                var production = context.Productions
+                    .Where(p => p.GameId == gameId && p.Owner.Equals(username))
+                    .First();
+
+                switch (input.Field)
                 {
-                    var production = context.Productions
-                        .Where(p => p.Owner.Equals(username) && p.GameId == gameId)
-                        .First();
+                    case "money":
+                        production.Money++;
+                        response.NewValue = production.Money;
+                        break;
+                    case "steel":
+                        production.Steel++;
+                        response.NewValue = production.Steel;
+                        break;
+                    case "titan":
+                        production.Titan++;
+                        response.NewValue = production.Titan;
+                        break;
+                    case "flora":
+                        production.Flora++;
+                        response.NewValue = production.Flora;
+                        break;
+                    case "energy":
+                        production.Energy++;
+                        response.NewValue = production.Energy;
+                        break;
+                    case "heat":
+                        production.Heat++;
+                        response.NewValue = production.Heat;
+                        break;
+                    default:
+                        response.IsSuccess = false;
+                        return response;
                 }
-                else if (area.Equals("vault"))
+                context.SaveChanges();
+                response.IsSuccess = true;
+            }
+            return response;
+        }
+
+        public ChangeValueResponse SubstractProd(HandInputVM input, int gameId)
+        {
+            var username = HttpContext.Current.User.Identity.Name;
+            var response = new ChangeValueResponse();
+
+            using (var context = new MarsdbEntities())
+            {
+                var production = context.Productions
+                    .Where(p => p.GameId == gameId && p.Owner.Equals(username))
+                    .First();
+
+                switch (input.Field)
                 {
-                    var vault = context.Vaults
-                        .Where(p => p.Owner.Equals(username) && p.GameId == gameId)
-                        .First();
+                    case "money":
+                        production.Money--;
+                        response.NewValue = production.Money;
+                        break;
+                    case "steel":
+                        production.Steel--;
+                        response.NewValue = production.Steel;
+                        break;
+                    case "titan":
+                        production.Titan--;
+                        response.NewValue = production.Titan;
+                        break;
+                    case "flora":
+                        production.Flora--;
+                        response.NewValue = production.Flora;
+                        break;
+                    case "energy":
+                        production.Energy--;
+                        response.NewValue = production.Energy;
+                        break;
+                    case "heat":
+                        production.Heat--;
+                        response.NewValue = production.Heat;
+                        break;
+                    default:
+                        response.IsSuccess = false;
+                        return response;
                 }
+                context.SaveChanges();
+                response.IsSuccess = true;
+            }
+            return response;
+        }
+
+        public ChangeValueResponse UpdateVault(HandInputVM input, int gameId)
+        {
+            var username = HttpContext.Current.User.Identity.Name;
+            var response = new ChangeValueResponse();
+
+            using (var context = new MarsdbEntities())
+            {
+                var vault = context.Vaults
+                    .Where(p => p.GameId == gameId && p.Owner.Equals(username))
+                    .First();
+
+                switch (input.Field)
+                {
+                    case "money":
+                        vault.Money = int.Parse(input.Value);
+                        break;
+                    case "steel":
+                        vault.Steel = int.Parse(input.Value);
+                        break;
+                    case "titan":
+                        vault.Titan = int.Parse(input.Value);
+                        break;
+                    case "flora":
+                        vault.Flora = int.Parse(input.Value);
+                        break;
+                    case "energy":
+                        vault.Energy = int.Parse(input.Value);
+                        break;
+                    case "heat":
+                        vault.Heat = int.Parse(input.Value);
+                        break;
+                    default:
+                        response.IsSuccess = false;
+                        return response;
+                }
+                context.SaveChanges();
+                response.NewValue = int.Parse(input.Value);
+                response.IsSuccess = true;
             }
             return response;
         }

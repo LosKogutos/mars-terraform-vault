@@ -196,6 +196,7 @@
     <Compile Include="Services\Interfaces\IGameService.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\GameVM.cs" />
+    <Compile Include="ViewModels\HandInputVM.cs" />
     <Compile Include="ViewModels\NewGameVM.cs" />
   </ItemGroup>
   <ItemGroup>

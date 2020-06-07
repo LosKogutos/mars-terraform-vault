@@ -104,20 +104,36 @@ namespace MarsTerraform.Controllers
         }
 
         [HttpPost]
-        [Route("add")]
-        public JsonResult Add(string area, string field)
+        [Route("AddProd")]
+        public JsonResult AddProd(HandInputVM input)
         {
-            var username = System.Web.HttpContext.Current.User.Identity.Name;
+            var gameId = (int)TempData["gameId"];
+            TempData.Keep();
 
-            return Json(new { isSuccess = true });
+            var result = _gameService.AddProd(input, gameId);
+            return Json(result);
         }
 
         [HttpPost]
-        [Route("substract")]
-        public JsonResult Substract(string area, string field)
+        [Route("SubstractProd")]
+        public JsonResult SubstractProd(HandInputVM input)
         {
-            //TO DO: add 
-            return Json(new { isSuccess = true });
+            var gameId = (int)TempData["gameId"];
+            TempData.Keep();
+
+            var result = _gameService.SubstractProd(input, gameId);
+            return Json(result);
+        }
+
+        [HttpPost]
+        [Route("UpdateVault")]
+        public JsonResult UpdateVault(HandInputVM input)
+        {
+            var gameId = (int)TempData["gameId"];
+            TempData.Keep();
+
+            var result = _gameService.UpdateVault(input, gameId);
+            return Json(result);
         }
     }
 }

@@ -4,45 +4,255 @@
     ViewBag.Title = "Hand";
 }
 
-<h2>Your Hand</h2>
-
-<div>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Production.Heat)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Production.Heat)
-            <button type="button" class="btn-success" onclick="Add('production','energy')">+</button>
-            <button type="button" class="btn-danger" onclick="Substract('production','energy')">+</button>
-        </dd>
-    </dl>
+<div class="row">
+    <div class="col">
+        <h2>Your Hand</h2>
+    </div>
 </div>
-<p>
 
-</p>
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Money)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('money')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('money')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('money')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Steel)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('steel')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('steel')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('steel')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Titan)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('titan')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('titan')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('titan')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Flora)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('flora')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('flora')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('flora')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Energy)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('energy')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('energy')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('energy')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col">
+        <div class="row">
+            <div class="col-md-12">
+                <b>@Html.DisplayNameFor(model => model.Production.Heat)</b>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Production.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-prod", @disabled = "disabled" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="AddProd('heat')">+</button>
+                    <button type="button" class="btn-danger" onclick="SubstractProd('heat')">-</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+                @Html.EditorFor(model => model.Vault.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-vault" } })
+                <div class="buttons">
+                    <button type="button" class="btn-success" onclick="UpdateVault('heat')">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 @section scripts {
     <script>
-        function Add(area, field) {
+        function AddProd(field) {
             $.ajax({
                 type: 'POST',
-                url: '/Game/Add',
-                data: JSON.stringify(area, field),
+                url: '/Game/AddProd',
+                data: JSON.stringify({
+                    Field: field
+                }),
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 success: function (data) {
-                    if (data.isSuccess) {
-                        //$("#successAlertDiv").show();
+                    if (data.IsSuccess) {
+                        $("#" + field + "-prod").val(data.NewValue);
+                        $("#" + field + "-prod").addClass('highlight-green');
+                        setTimeout(function () {
+                            $("#" + field + "-prod").removeClass('highlight-green');
+                        }, 1500);
                     }
                     else {
-                        //$("#failureAlertDiv").show();
+                        alert('Unable to update. Try again later.')
                     }
                 },
                 failure: function (errMsg) {
-                    //$("#failureAlertDiv").show();
+                    alert('Unable to update. Try again later.')
+                }
+            });
+        }
+
+        function SubstractProd(field) {
+            $.ajax({
+                type: 'POST',
+                url: '/Game/SubstractProd',
+                data: JSON.stringify({
+                    Field: field
+                }),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        $("#" + field + "-prod").val(data.NewValue);
+                        $("#" + field + "-prod").addClass('highlight-red');
+                        setTimeout(function () {
+                            $("#" + field + "-prod").removeClass('highlight-red');
+                        }, 1500);
+                    }
+                    else {
+                        alert('Unable to update. Try again later.')
+                    }
+                },
+                failure: function (errMsg) {
+                    alert('Unable to update. Try again later.')
+                }
+            });
+        }
+
+        function UpdateVault(field) {
+            var value = $("#" + field + "-vault").val();
+            $.ajax({
+                type: 'POST',
+                url: '/Game/UpdateVault',
+                data: JSON.stringify(
+                    {
+                        Field: field,
+                        Value: value
+                    }),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.IsSuccess) {
+                        $("#" + field + "-vault").val(data.NewValue);
+                        $("#" + field + "-vault").addClass('highlight-green');
+                        setTimeout(function () {
+                            $("#" + field + "-vault").removeClass('highlight-green');
+                        }, 1500)
+                    }
+                    else {
+                        alert('Unable to update. Try again later.')
+                    }
+                },
+                failure: function (errMsg) {
+                    alert('Unable to update. Try again later.')
                 }
             });
         }

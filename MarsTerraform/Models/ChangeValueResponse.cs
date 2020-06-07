@@ -2,7 +2,7 @@
 {
     public class ChangeValueResponse
     {
-        bool IsSuccess { get; set; }
-        int NewValue { get; set; }
+        public bool IsSuccess { get; set; }
+        public int NewValue { get; set; }
     }
 }

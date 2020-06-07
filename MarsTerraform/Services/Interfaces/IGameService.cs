@@ -11,5 +11,8 @@ namespace MarsTerraform.Services.Interfaces
         bool JoinGame(int gameId);
         bool IsGameMember(string username, int gameId);
         HandVM GetUserHand(string username, int gameId);
+        ChangeValueResponse AddProd(HandInputVM input, int gameId);
+        ChangeValueResponse SubstractProd(HandInputVM input, int gameId);
+        ChangeValueResponse UpdateVault(HandInputVM input, int gameId);
     }
 }
