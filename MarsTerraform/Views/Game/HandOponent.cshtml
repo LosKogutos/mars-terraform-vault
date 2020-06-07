@@ -1,18 +1,17 @@
 ﻿@model MarsTerraform.Models.HandVM
 
 @{
-    ViewBag.Title = "HandOponent";
+    ViewBag.Title = "Oponent's hand";
 }
-
-<h2>@Model.Owner's hand</h2>
-
 
 <div class="row">
     <div class="col">
-        <h2>Model.Owner's hand</h2>
+        <h2>@Model.Owner's hand</h2>
     </div>
 </div>
 
+<hr />
+<a onclick="history.go(-1); return false;" href="#">Back to your hand</a><br />
 
 <hr />
 <div class="row">

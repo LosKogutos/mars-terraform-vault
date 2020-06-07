@@ -57,6 +57,7 @@ namespace MarsTerraform.Controllers
                 var isJoined = _gameService.JoinGame(gameId);
                 if (isJoined)
                 {
+                    TempData["gameId"] = gameId;
                     return RedirectToAction("Hand", "Game", new { gameId= gameId });
                 }
                 else
@@ -75,6 +76,7 @@ namespace MarsTerraform.Controllers
         [Route("{gameId}/hand/{username}")]
         public ActionResult HandOponent(int gameId, string username)
         {
+            TempData["gameId"] = gameId;
             if (_gameService.IsGameMember(username, gameId))
             {
                 var hand = _gameService.GetUserHand(username, gameId);
@@ -108,7 +110,7 @@ namespace MarsTerraform.Controllers
         public JsonResult AddProd(HandInputVM input)
         {
             var gameId = (int)TempData["gameId"];
-            TempData.Keep();
+            TempData.Keep(); 
 
             var result = _gameService.AddProd(input, gameId);
             return Json(result);

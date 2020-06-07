@@ -7,6 +7,7 @@ namespace MarsTerraform.Models
 {
     public class HandVM
     {
+        public List<string> PlayersList { get; set; }
         public ProductionVM Production { get; set; }
         public VaultVM Vault { get; set; }
         public string Owner { get; set; }

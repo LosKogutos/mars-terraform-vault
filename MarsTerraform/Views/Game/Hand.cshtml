@@ -1,7 +1,7 @@
 ﻿@model MarsTerraform.Models.HandVM
 
 @{
-    ViewBag.Title = "Hand";
+    ViewBag.Title = "Your Hand";
 }
 
 <div class="row">
@@ -168,6 +168,23 @@
                 </div>
             </div>
         </div>
+    </div>
+</div>
+
+<hr />
+<div class="row oponents">
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h2>Oponents list</h2>
+            </div>
+        </div>
+        @foreach (var user in Model.PlayersList)
+        {
+            <div class="row">
+                @Html.ActionLink(user, "HandOponent", new { gameId = TempData["gameId"], username = user })
+            </div>
+        }
     </div>
 </div>
 

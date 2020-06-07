@@ -25,10 +25,6 @@ namespace MarsTerraform.Services
                         Created = DateTime.Now
                     };
 
-                    game.AspNetUsers.Add(
-                        context.AspNetUsers.First(u => u.UserName.Equals(HttpContext.Current.User.Identity.Name))
-                    );
-
                     context.Games.Add(game);
                     context.SaveChanges();
 
@@ -155,6 +151,13 @@ namespace MarsTerraform.Services
                         Energy = p.Energy,
                         Heat = p.Heat
                     }).First();
+
+                var game = context.Games
+                    .Where(g => g.Id == gameId)
+                    .First();
+
+                hand.PlayersList = game.AspNetUsers.Select(u => u.UserName).ToList();
+
                 return hand;
             }
         }
