@@ -6,27 +6,27 @@
 
 <div class="row">
     <div class="col">
-        <h2>@Model.Owner's hand</h2>
+        <h4>@Model.Owner's hand</h4>
     </div>
 </div>
 
 <hr />
-<a onclick="history.go(-1); return false;" href="#">Back to your hand</a><br />
+<a class="btn btn-light" onclick="history.go(-1); return false;" href="#">Back to your hand</a><br />
 
 <hr />
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Money)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 <b>Production</b>
                 @Html.EditorFor(model => model.Production.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 <b>Vault</b>
                 @Html.EditorFor(model => model.Vault.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-vault", @disabled = "disabled" } })
             </div>
@@ -39,15 +39,15 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Steel)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-vault", @disabled = "disabled" } })
             </div>
         </div>
@@ -59,15 +59,15 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Titan)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-vault", @disabled = "disabled" } })
             </div>
         </div>
@@ -79,15 +79,15 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Flora)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-vault", @disabled = "disabled" } })
             </div>
         </div>
@@ -99,15 +99,15 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Energy)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-vault", @disabled = "disabled" } })
             </div>
         </div>
@@ -118,15 +118,15 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Heat)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-prod", @disabled = "disabled" } })
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-vault", @disabled = "disabled" } })
             </div>
         </div>

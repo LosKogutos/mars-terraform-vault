@@ -9,6 +9,6 @@ namespace MarsTerraform.ViewModels
         public DateTime Created { get; set; }
         public DateTime? Closed { get; set; }
         public bool IsActive { get; set; }
-        public int PlayersCount { get; set; }
+        public int Players { get; set; }
     }
 }

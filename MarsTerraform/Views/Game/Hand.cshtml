@@ -5,12 +5,12 @@
 }
 
 <div class="row">
-    <div class="col">
+    <div class="ml-3 mt-3">
         <h2>Your Hand</h2>
     </div>
     @if(Model.Owner.Equals(System.Web.HttpContext.Current.User.Identity.Name)){
-        <div class="col">
-            <button type="button" class="btn-default" onclick="Close()">Finish Game</button>
+        <div class="mr-3 mt-3 ml-auto">
+            <button type="button" class="btn btn btn-danger" onclick="Close()">Finish Game</button>
         </div>
     }
 </div>
@@ -20,22 +20,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Money)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('money')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('money')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('money')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('money')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Money, new { htmlAttributes = new { @class = "form-control", @id = "money-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('money')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('money')">Update</button>
                 </div>
             </div>
         </div>
@@ -47,22 +47,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Steel)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('steel')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('steel')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('steel')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('steel')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Steel, new { htmlAttributes = new { @class = "form-control", @id = "steel-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('steel')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('steel')">Update</button>
                 </div>
             </div>
         </div>
@@ -74,22 +74,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Titan)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('titan')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('titan')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('titan')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('titan')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Titan, new { htmlAttributes = new { @class = "form-control", @id = "titan-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('titan')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('titan')">Update</button>
                 </div>
             </div>
         </div>
@@ -101,22 +101,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Flora)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('flora')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('flora')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('flora')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('flora')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Flora, new { htmlAttributes = new { @class = "form-control", @id = "flora-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('flora')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('flora')">Update</button>
                 </div>
             </div>
         </div>
@@ -128,22 +128,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Energy)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('energy')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('energy')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('energy')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('energy')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Energy, new { htmlAttributes = new { @class = "form-control", @id = "energy-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('energy')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('energy')">Update</button>
                 </div>
             </div>
         </div>
@@ -154,22 +154,22 @@
 <div class="row">
     <div class="col">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
                 <b>@Html.DisplayNameFor(model => model.Production.Heat)</b>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Production.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-prod", @disabled = "disabled" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="AddProd('heat')">+</button>
-                    <button type="button" class="btn-danger" onclick="SubstractProd('heat')">-</button>
+                    <button type="button" class="btn btn-success add" onclick="AddProd('heat')"><b>+</b></button>
+                    <button type="button" class="btn btn-danger minus" onclick="SubstractProd('heat')"><b>-</b></button>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-6">
                 @Html.EditorFor(model => model.Vault.Heat, new { htmlAttributes = new { @class = "form-control", @id = "heat-vault" } })
                 <div class="buttons">
-                    <button type="button" class="btn-success" onclick="UpdateVault('heat')">Update</button>
+                    <button type="button" class="btn btn-success" onclick="UpdateVault('heat')">Update</button>
                 </div>
             </div>
         </div>
@@ -186,9 +186,12 @@
         </div>
         @foreach (var user in Model.PlayersList)
         {
-            <div class="row">
-                @Html.ActionLink(user, "HandOponent", new { username = user })
+
+        <div class="row">
+            <div class="btn btn-light mb-2">
+                <a href="@Url.Action("HandOponent", new { username = user } )" class="btn btn-light">@user</a>
             </div>
+        </div>
         }
     </div>
 </div>

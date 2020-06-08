@@ -1,14 +1,28 @@
-﻿body {
-    padding-top: 50px;
+﻿@font-face {
+    font-family: 'Prototype';
+    src: url('Prototype.ttf');
+}
+
+* {
+    font-family: 'Prototype';
+}
+
+body {
     padding-bottom: 20px;
+    font-size: medium;
 }
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+    margin-top: 60px;
+    margin-bottom: 50px;
+    /*padding-left: 10px;
+    padding-right: 10px;*/
 }
 
+.footer-text {
+    font-size: x-small;
+}
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
@@ -26,6 +40,16 @@ textarea {
 .nav-btn {
     margin-top: 30px;
     border: 1px dashed black;
+    border-radius: 25px;
+    width:75%;
+}
+
+.add {
+    width: 40px;
+}
+
+.minus {
+    width: 40px;
 }
 
 .buttons {

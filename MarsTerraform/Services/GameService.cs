@@ -49,7 +49,7 @@ namespace MarsTerraform.Services
                         Created = g.Created,
                         Closed = g.Closed,
                         IsActive = g.IsActive,
-                        PlayersCount = g.AspNetUsers.Count()
+                        Players = g.AspNetUsers.Count()
                     }).ToList();
 
                 return list;

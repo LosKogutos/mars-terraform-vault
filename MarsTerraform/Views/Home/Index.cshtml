@@ -3,26 +3,18 @@
 }
 
 <div class="jumbotron">
-    <h1>Mars Terraformation</h1>
     <p class="lead">This applicaiton allows you to manage your resources and production within Mars Terraformation game.</p>
     <p>You can start by creating new game or joining a game already existing.</p>
 </div>
-
-<div class="row nav-btn">
-    <a href="@Url.Action("Create","Game")">
-        <div class="col text-center">
+<div class="text-center w-100">
+    <div class="row nav-btn ml-auto mr-auto">
+        <a href="@Url.Action("Create","Game")" class="btn btn-default ml-auto mr-auto">
             <h2>Create Game</h2>
-            <p>
-                Create new game and invite your colleagues.
-            </p>
-        </div>
-    </a>
-</div>
-<div class="row nav-btn">
-    <a href="@Url.Action("Join","Game")">
-        <div class="col text-center">
+        </a>
+    </div>
+    <div class="row nav-btn ml-auto mr-auto">
+        <a href="@Url.Action("Join","Game")" class="btn btn-default ml-auto mr-auto">
             <h2>Join Game</h2>
-            <p>Join your colleagues in their game.</p>
-        </div>
-    </a>
+        </a>
+    </div>
 </div>

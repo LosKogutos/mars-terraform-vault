@@ -8,31 +8,22 @@
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Mars Terraformation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+<body background="~/Content/boardgames.jpg">
+    
+    <nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+        @Html.ActionLink("Mars Terraformation", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            @Html.Partial("_LoginPartial")
         </div>
-    </div>
+    </nav>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Mars Terraformation</p>
-            <p>Created By - LosKogutos</p>
+        <footer class="fixed-bottom text-center bg-light">
+            <p class="font-weight-light footer-text mt-3">&copy; @DateTime.Now.Year - Mars Terraformation. Created By - LosKogutos</p>
         </footer>
     </div>
 
@@ -41,3 +32,4 @@
     @RenderSection("scripts", required: false)
 </body>
 </html>
+    
