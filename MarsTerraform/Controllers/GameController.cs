@@ -74,9 +74,11 @@ namespace MarsTerraform.Controllers
         }
 
         [Route("{gameId}/hand/{username}")]
-        public ActionResult HandOponent(int gameId, string username)
+        public ActionResult HandOponent(string username)
         {
-            TempData["gameId"] = gameId;
+            var gameId = (int)TempData["gameId"];
+            TempData.Keep();
+
             if (_gameService.IsGameMember(username, gameId))
             {
                 var hand = _gameService.GetUserHand(username, gameId);
@@ -136,6 +138,16 @@ namespace MarsTerraform.Controllers
 
             var result = _gameService.UpdateVault(input, gameId);
             return Json(result);
+        }
+
+        [Route("Finish")]
+        public ActionResult Finish()
+        {
+            var gameId = (int)TempData["gameId"];
+
+            _gameService.Finish(gameId);
+
+            return RedirectToAction("Join");
         }
     }
 }

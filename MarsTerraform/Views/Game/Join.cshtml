@@ -15,9 +15,13 @@
     <p>
         @ViewBag.IsNotGameMember
     </p>
+    <br />
 }
 
-<table class="table">
+<input type="checkbox" id="showInactive" value="value" />
+<label for="showInactive">Include historical games</label>
+
+<table class="table" id="gameTable">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
@@ -49,7 +53,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Closed)
             </td>
-            <td>
+            <td class="isActive">
                 @Html.DisplayFor(modelItem => item.IsActive)
             </td>
             <td>
@@ -62,3 +66,25 @@
     }
 
 </table>
+
+@section scripts {
+    <script>
+        $('#showInactive').change(function () {
+            if (this.checked) {
+                ChangeVisibility(true);
+            } else {
+                ChangeVisibility(false);
+            }
+        });
+
+        function ChangeVisibility(value) {
+            $("#gameTable .isActive .check-box").each(function () {
+                if (this.checked) {
+                    var cell = this.parentElement;
+                    var row = cell.parentElement;
+                    row.hidden = value;
+                }
+            });
+        }
+    </script>
+}

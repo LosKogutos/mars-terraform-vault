@@ -42,7 +42,6 @@ namespace MarsTerraform.Services
             using(var context = new MarsdbEntities())
             {
                 var list = context.Games
-                    .Where(g => g.IsActive == true)
                     .Select(g => new GameVM
                     {
                         Id = g.Id,
@@ -296,6 +295,20 @@ namespace MarsTerraform.Services
                 response.IsSuccess = true;
             }
             return response;
+        }
+
+        public bool Finish(int gameId)
+        {
+            using(var context = new MarsdbEntities())
+            {
+                var game = context.Games.Where(g => g.Id == gameId).First();
+                game.IsActive = false;
+                game.Closed = DateTime.Now;
+
+                context.SaveChanges();
+
+                return true;
+            }
         }
     }
 }

@@ -8,6 +8,11 @@
     <div class="col">
         <h2>Your Hand</h2>
     </div>
+    @if(Model.Owner.Equals(System.Web.HttpContext.Current.User.Identity.Name)){
+        <div class="col">
+            <button type="button" class="btn-default" onclick="Close()">Finish Game</button>
+        </div>
+    }
 </div>
 
 
@@ -182,7 +187,7 @@
         @foreach (var user in Model.PlayersList)
         {
             <div class="row">
-                @Html.ActionLink(user, "HandOponent", new { gameId = TempData["gameId"], username = user })
+                @Html.ActionLink(user, "HandOponent", new { username = user })
             </div>
         }
     </div>
@@ -190,6 +195,12 @@
 
 @section scripts {
     <script>
+        function Close() {
+            if (confirm('Are you sure you want to finish current game?')) {
+                window.location.href = '/Game/Finish';
+            } 
+        }
+
         function AddProd(field) {
             $.ajax({
                 type: 'POST',

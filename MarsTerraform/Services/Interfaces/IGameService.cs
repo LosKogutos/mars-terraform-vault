@@ -14,5 +14,6 @@ namespace MarsTerraform.Services.Interfaces
         ChangeValueResponse AddProd(HandInputVM input, int gameId);
         ChangeValueResponse SubstractProd(HandInputVM input, int gameId);
         ChangeValueResponse UpdateVault(HandInputVM input, int gameId);
+        bool Finish(int gameId);
     }
 }
