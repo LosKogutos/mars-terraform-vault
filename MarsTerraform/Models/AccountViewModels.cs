@@ -65,8 +65,7 @@ namespace MarsTerraform.Models
     public class RegisterViewModel
     {
         [Required]
-        [EmailAddress]
-        [Display(Name = "Email")]
+        [Display(Name = "Username")]
         public string Email { get; set; }
 
         [Required]

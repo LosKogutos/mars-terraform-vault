@@ -15,6 +15,12 @@ body {
 h2 {
     padding: 10px;
     background-color: azure;
+    word-break: break-word;
+}
+
+.symbol {
+    height: 30px;
+    width: 30px;
 }
 
 /* Set padding to keep content from hitting the edges */
