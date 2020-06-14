@@ -12,6 +12,11 @@ body {
     font-size: medium;
 }
 
+h2 {
+    padding: 10px;
+    background-color: azure;
+}
+
 /* Set padding to keep content from hitting the edges */
 .body-content {
     margin-top: 60px;
@@ -37,11 +42,17 @@ textarea {
     max-width: 280px;
 }
 
+.azure-bg {
+    padding: 10px;
+    background-color:azure;
+    opacity: 0.85;
+}
+
 .nav-btn {
     margin-top: 30px;
     border: 1px dashed black;
     border-radius: 25px;
-    width:75%;
+    width: 75%;
 }
 
 .add {

@@ -11,8 +11,7 @@
 {
     @Html.AntiForgeryToken()
     
-<div class="form-horizontal">
-    <hr />
+<div class="form-horizontal azure-bg">
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     <div class="form-group">
         @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,12 +25,12 @@
         <p>@ViewBag.Error</p>
     }
 
-    <div class="form-group">
+    <div class="form-group pl-3">
         <div>
             <input type="submit" value="Create" class="btn btn-success" />
         </div>
         <div class="ml-auto mt-2">
-            <a href="@Url.Action("Index", "Home")" class="btn btn-light">Back</a>
+            <a href="@Url.Action("Index", "Home")" class="btn btn-warning">Back</a>
         </div>
     </div>
 </div>

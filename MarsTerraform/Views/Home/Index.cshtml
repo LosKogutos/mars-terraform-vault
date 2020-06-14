@@ -2,17 +2,17 @@
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+<div class="jumbotron azure-bg">
     <p class="lead">This applicaiton allows you to manage your resources and production within Mars Terraformation game.</p>
-    <p>You can start by creating new game or joining a game already existing.</p>
+    <p>You can start by creating new game or joining a game that already exists.</p>
 </div>
 <div class="text-center w-100">
-    <div class="row nav-btn ml-auto mr-auto">
+    <div class="row nav-btn ml-auto mr-auto bg-light">
         <a href="@Url.Action("Create","Game")" class="btn btn-default ml-auto mr-auto">
             <h2>Create Game</h2>
         </a>
     </div>
-    <div class="row nav-btn ml-auto mr-auto">
+    <div class="row nav-btn ml-auto mr-auto bg-light">
         <a href="@Url.Action("Join","Game")" class="btn btn-default ml-auto mr-auto">
             <h2>Join Game</h2>
         </a>
