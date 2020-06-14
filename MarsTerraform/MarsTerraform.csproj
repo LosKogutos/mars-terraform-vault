@@ -243,6 +243,8 @@
     <Content Include="Content\bootstrap-grid.min.css.map" />
     <Content Include="Content\bootstrap-grid.css.map" />
     <Content Include="Content\Prototype.ttf" />
+    <None Include="Properties\PublishProfiles\mars-terraform-vault - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\mars-terraform-vault - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
